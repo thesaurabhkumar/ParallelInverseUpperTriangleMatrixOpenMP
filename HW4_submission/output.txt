@@ -1,0 +1,88 @@
+compute_inverse time = 1.59414e+02
+
+Computation Norm = 0.000000
+norm calculation time = 6.41346e+01
+compute_inverse time = 8.36539e+01
+
+Computation Norm = 0.000000
+norm calculation time = 5.44608e+01
+compute_inverse time = 4.88711e+01
+
+Computation Norm = 0.000000
+norm calculation time = 5.32507e+01
+compute_inverse time = 5.15834e+01
+
+Computation Norm = 0.000000
+norm calculation time = 5.29999e+01
+compute_inverse time = 4.38525e+01
+
+Computation Norm = 0.000000
+norm calculation time = 6.40128e+01
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@nxt1628>
+Subject: Job 6837462: <matrix> in cluster <Main_Compute> Done
+
+Job <matrix> was submitted from host <login2> by user <thesaurabh> in cluster <Main_Compute>.
+Job was executed on host(s) <4*nxt1628>, in queue <mn_short>, as user <thesaurabh> in cluster <Main_Compute>.
+                            <4*nxt1240>
+                            <4*nxt1705>
+                            <4*nxt2153>
+                            <4*nxt1429>
+                            <4*nxt1137>
+                            <4*nxt1759>
+                            <4*nxt1652>
+                            <4*nxt2133>
+                            <4*nxt1308>
+                            <4*nxt2051>
+                            <4*nxt2054>
+                            <4*nxt1229>
+                            <4*nxt2058>
+                            <4*nxt1904>
+                            <4*nxt1310>
+</home/thesaurabh> was used as the home directory.
+</home/thesaurabh/HW4> was used as the working directory.
+Started at Sat Nov 25 12:16:46 2017
+Results reported on Sat Nov 25 12:29:07 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#BSUB -n 64 -R 'select[nxt] rusage[mem=1024] span[ptile=4]' -M 1024
+#BSUB -J matrix -o output.%J -L /bin/bash -W 0:30
+##
+##BSUB -W hh:mm                  # sets job's runtime wall-clock limit in hours:minutes or just minutes (-mm).
+##BSUB -n NNN                    # NNN: total number of cores/jobslots to allocate for the job
+##BSUB -R "span[ptile=XX]"       # XX:  number of cores/jobslots per node to use. Also, a node selection criterion
+##BSUB -R "select[node-type]"    # node-type: nxt, mem256gb, gpu, phi, mem1t, mem2t ...
+##BSUB -R "rusage[mem=nnn]"      # reserves nnn MBs per process/CPU for the job
+##BSUB -M mm                     # sets the per process enforceable memory limit to nnn MB
+##
+## <--- at this point the current working directory is the one you submitted the job from.
+##
+module load intel/2017A       # load Intel software stack 
+#
+
+./par.exe 4096 1
+./par.exe 4096 2
+./par.exe 4096 4
+./par.exe 4096 10
+./par.exe 4096 20
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   1647.35 sec.
+    Max Memory :                                 411 MB
+    Average Memory :                             300.36 MB
+    Total Requested Memory :                     65536.00 MB
+    Delta Memory :                               65125.00 MB
+    Max Processes :                              4
+    Max Threads :                                24
+
+The output (if any) is above this job summary.
+
