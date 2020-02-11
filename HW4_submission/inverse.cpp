@@ -178,13 +178,7 @@ void initMatrix(double** Mat, int x, int y)
             Mat[i][j] = rand()%2000 + 1;
         }
     }
-    for(int j=0; j<y; j++){
-        int sum = 0;
-        for(int i=0; i<x; i++){
-            sum += Mat[i][j];
-        }
-        Mat[j][j] += sum;
-    }
+    
 }
 
 void copyMatrix(double** inMat, double** outMat, int n)
